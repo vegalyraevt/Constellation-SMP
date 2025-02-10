@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Bios - Constellation SMP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .bios-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center the grid */
+            max-width: 1200px; /* Limit the maximum width */
+            margin: 0 auto; /* Center the grid within the page */
+        }
+        .bio-card {
+            flex: 1 1 300px; /* Flex-grow, flex-shrink, and flex-basis */
+            max-width: 300px; /* Set a maximum width for the bio cards */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            justify-content: center; /* Center the icons */
+        }
+        .social-icons a img {
+            width: 24px; /* Resize to smaller icons */
+            height: 24px; /* Resize to smaller icons */
+        }
+        @media (max-width: 1400px) {
+            .bios-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust columns for smaller screens */
+            }
+        }
+        @media (max-width: 1000px) {
+            .bios-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust columns for smaller screens */
+            }
+        }
+        @media (max-width: 700px) {
+            .bios-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust columns for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="pictures/ConSmpLogo.png" alt="Constellation SMP Logo" class="logo">
+            <h1>Creator Bios</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="modlist.html">Modlist</a></li>
+                <li><a href="credits.html">Credits</a></li>
+                <li><a href="plans.html">Events & Plans</a></li>
+                <li><a href="downloads.html">Custom Server Mods</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="bios-grid">
+            <!--
+            <div class="bio-card">
+                <img src="path/to/profile1.jpg" alt="Player 1">
+                <h3>Player 1</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/player1" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@player1" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/player1" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/player1" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/player1" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/player1" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/player1" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/player1" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>Short bio of Player 1.</p>
+                <a href="player1.html">Read more</a>
+            </div>
+            -->
+            <!-- Repeat for other players -->
+            <div class="bio-card">
+                <img src="players/Bea/BeaPFP.png" alt="Beatrice Bellamour">
+                <h3>Beatrice Bellamour</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/@beatricebellamour?si=UjuvNahOUg0IXSe1" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://twitch.tv/beatricebellamour" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://bsky.app/profile/beatricebellamour.bsky.social" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                </div>
+                <p>Hol'up, ain't you Beatrice B?</p>
+                <a href="players/Bea/bea.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="ButterCream24">
+                <h3>ButterCream24</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/buttercream24" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@buttercream24" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/buttercream24" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/buttercream24" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/buttercream24" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/buttercream24" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/buttercream24" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/buttercream24" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="buttercream24.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="crossingstyx_">
+                <h3>crossingstyx_</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/crossingstyx_" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@crossingstyx_" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/crossingstyx_" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/crossingstyx_" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/crossingstyx_" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/crossingstyx_" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/crossingstyx_" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/crossingstyx_" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="crossingstyx.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Cy/CyPFP.png" alt="Cy">
+                <h3>Cycian</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/lunarw01f_" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://x.com/CycianVT_" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                </div>
+                <p>I'm Bri'ish</p>
+                <a href="players/Cy/cy.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="Finmide">
+                <h3>Finmide</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/finmide" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@finmide" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/finmide" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/finmide" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/finmide" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/finmide" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/finmide" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/finmide" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="finmide.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="FlowTurbulance">
+                <h3>FlowTurbulance</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/flowturbulance" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@flowturbulance" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/flowturbulance" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/flowturbulance" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/flowturbulance" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/flowturbulance" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/flowturbulance" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/flowturbulance" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="flowturbulance.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Ghoo/GhooPFP.png" alt="GhoomanAffogato">
+                <h3>GhoomanAffogato</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/ghoomanaffogato" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://www.youtube.com/@AffogatoGhooman" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://x.com/AffogatoGhooman" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/affogatoghooman.bsky.social" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                </div>
+                <p>It's Slime Time</p>
+                <a href="players/Ghoo/ghoo.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Knight/KnightPFP.png" alt="KnightsofOcelot">
+                <h3>KnightsofOcelot</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@knightsofocelotVT" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://www.twitch.tv/knightsofocelot" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                </div>
+                <p>Kulaan of Goat Horns</p>
+                <a href="players/Knight/knight.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="KureaAstraea">
+                <h3>KureaAstraea</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/kureaastraea" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@kureaastraea" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/kureaastraea" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/kureaastraea" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/kureaastraea" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/kureaastraea" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/kureaastraea" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/kureaastraea" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="kureaastraea.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="MachinGero">
+                <h3>MachinGero</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/machingero" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@machingero" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/machingero" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/machingero" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/machingero" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/machingero" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/machingero" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/machingero" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="machingero.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Gray/GrayPFP.png" alt="Mister_GrayManVT">
+                <h3>Mister_GrayManVT</h3>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/channel/UCrs1Kbs7_EuxkMSg48Jtnow" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://www.twitch.tv/mister_graymanvt" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://x.com/Mister_GrayMan" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                </div>
+                <p>Morally Gray Vtuber</p>
+                <a href="players/Gray/gray.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="MonozukiVT">
+                <h3>MonozukiVT</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/monozukivt" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@monozukivt" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/monozukivt" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/monozukivt" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/monozukivt" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/monozukivt" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/monozukivt" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/monozukivt" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="monozukivt.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="MysticaKnight">
+                <h3>MysticaKnight</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/mysticaknight" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@mysticaknight" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/mysticaknight" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/mysticaknight" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/mysticaknight" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/mysticaknight" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/mysticaknight" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/mysticaknight" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="mysticaknight.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Novem/NovemPFP.png" alt="Novem_Winters">
+                <h3>Novem_Winters</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/novem_winters" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://x.com/NovemWinters" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                </div>
+                <p>Bottom for Life</p>
+                <a href="players/Novem/novem.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Robe/RobePFP.png" alt="RobeCaster">
+                <h3>RobeCaster</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/robecaster" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://x.com/CasterRobe" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/robecaster.bsky.social" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                </div>
+                <p>The friendliest horror<br>you've ever met.</p>
+                <a href="players/Robe/robe.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="Ruffiex">
+                <h3>Ruffiex</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/ruffiex" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@ruffiex" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/ruffiex" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/ruffiex" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/ruffiex" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/ruffiex" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/ruffiex" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/ruffiex" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="ruffiex.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Maree/MareePFP.png" alt="SpiderMaree">
+                <h3>SpiderMaree</h3>
+                <div class="social-icons">
+                    <a href="https://twitch.tv/SpiderMaree" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="www.youtube.com/@SpiderMaree" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://bsky.app/profile/spidermaree.bsky.social" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://vgen.co/SpiderMaree" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                </div>
+                <p>She don't bite</p>
+                <a href="players/Maree/maree.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="pictures/placeholder.png" alt="Tekku_Chang">
+                <h3>Tekku_Chang</h3>
+                <div class="social-icons">
+                    <a href="https://youtube.com/tekku_chang" target="_blank"><img src="icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://tiktok.com/@tekku_chang" target="_blank"><img src="icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://twitch.tv/tekku_chang" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/tekku_chang" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/tekku_chang" target="_blank"><img src="icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://instagram.com/tekku_chang" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                    <a href="https://vgen.co/tekku_chang" target="_blank"><img src="icons/Vgen.png" alt="Vgen"></a>
+                    <a href="https://ko-fi.com/tekku_chang" target="_blank"><img src="icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>There's nothing here for them yet...<br>Hopefully they submit info soon.</p>
+                <a href="tekku_chang.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Vega/VegaPFP.png" alt="VegaLyrae">
+                <h3>Vega Lyrae</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/vegalyraebard" target="_blank"><img src="../../icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://twitter.com/VegaLyraeVT" target="_blank"><img src="../../icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://bsky.app/profile/vegalyrae.bsky.social" target="_blank"><img src="../../icons/Bsky.png" alt="Bluesky"></a>
+                    <a href="https://www.youtube.com/channel/UCfZoarE8FQ9q2SMarcXgyIg" target="_blank"><img src="../../icons/Youtube.png" alt="YouTube"></a>
+                    <a href="https://www.tiktok.com/@vegalyraevtuber" target="_blank"><img src="../../icons/TikTok.png" alt="TikTok"></a>
+                    <a href="https://ko-fi.com/vegalyrae/shop" target="_blank"><img src="../../icons/Kofi.png" alt="Kofi"></a>
+                </div>
+                <p>Took "making" new friends<br>a little too literally...</p>
+                <a href="players/Vega/vega.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Vivi/ViviPFP.png" alt="VivianByCandlelight">
+                <h3>VivianByCandlelight</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/vivianbycandlelight" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                </div>
+                <p>Im literally a candle. <br>Help, I'm melting.</p>
+                <a href="players/Vivi/vivi.html">Read more</a>
+            </div>
+
+            <div class="bio-card">
+                <img src="players/Zeus/ZeusleeePFP.png" alt="Zeusleee">
+                <h3>Zeusleee</h3>
+                <div class="social-icons">
+                    <a href="https://www.twitch.tv/zeusleee" target="_blank"><img src="icons/Twitch.png" alt="Twitch"></a>
+                    <a href="https://x.com/KkuraFFXIV" target="_blank"><img src="icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/kkuraffxiv/" target="_blank"><img src="icons/Insta.png" alt="Instagram"></a>
+                </div>
+                <p>Can be your rabbit or <br>can be your play bunny.</p>
+                <a href="players/Zeus/zeus.html">Read more</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Constellation SMP. All rights reserved.</p>
+    </footer>
+</body>
+</html>
