@@ -292,3 +292,58 @@ footer {
     width: 50%;
     padding: 1rem;
 }
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-left {
+    transform: translateX(-20px);
+}
+
+.fade-in-right {
+    transform: translateX(20px);
+}
+
+.fade-in-top {
+    transform: translateY(-20px);
+}
+
+.fade-in-top-subtle {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.fade-in-top-subtle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-bottom-subtle {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.fade-in-bottom-subtle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-subtle {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-subtle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
