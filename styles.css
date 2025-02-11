@@ -367,4 +367,37 @@ footer {
     .social-icons {
         justify-content: center;
     }
+
+    .about-section,
+    .credits-section,
+    .downloads-section,
+    .modlist-section,
+    .future-plans-section,
+    .alternate-section {
+        flex-direction: column;
+    }
+
+    .about-section img,
+    .credits-section img,
+    .downloads-section img,
+    .modlist-section img,
+    .future-plans-section img,
+    .alternate-section img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .about-section .text,
+    .credits-section .text,
+    .downloads-section .text,
+    .modlist-section .text,
+    .future-plans-section .text,
+    .alternate-section .text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .alternate-section.reverse {
+        flex-direction: column;
+    }
 }
