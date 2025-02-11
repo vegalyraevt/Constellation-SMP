@@ -14,4 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); // Initial check
+
+    // Mobile menu toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    const navMenu = document.querySelector('nav');
+
+    menuIcon.addEventListener('click', () => {
+        navMenu.classList.toggle('navshow');
+    });
 });
