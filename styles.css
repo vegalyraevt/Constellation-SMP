@@ -347,3 +347,42 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+    .alternate-section,
+    .about-section,
+    .modlist-section,
+    .future-plans-section,
+    .downloads-section,
+    .credits-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .alternate-section img,
+    .about-section img,
+    .modlist-section img,
+    .future-plans-section img,
+    .downloads-section img,
+    .credits-section img {
+        width: 100%;
+        height: auto;
+    }
+    .alternate-section .text,
+    .about-section .text,
+    .modlist-section .text,
+    .future-plans-section .text,
+    .downloads-section .text,
+    .credits-section .text {
+        text-align: center;
+        padding: 10px;
+    }
+    .alternate-section.reverse,
+    .about-section.reverse,
+    .modlist-section.reverse,
+    .future-plans-section.reverse,
+    .downloads-section.reverse,
+    .credits-section.reverse {
+        flex-direction: column;
+    }
+}
