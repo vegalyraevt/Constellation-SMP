@@ -312,76 +312,53 @@
         }
     </style>
     <script>
-        // Store calendar IDs
-        const calendarIDs = {
-            holiday: '0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b@group.calendar.google.com',
-            streams: '2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69@group.calendar.google.com',
-            tournament: '382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c@group.calendar.google.com'
+    // Store calendar IDs
+    const calendarIDs = {
+        holiday: '0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b@group.calendar.google.com',
+        streams: '2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69@group.calendar.google.com',
+        tournament: '382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c@group.calendar.google.com'
+    };
+
+    // Function to update the calendar iframe based on selected filters
+    function updateCalendarDisplay() {
+        // Get selected categories
+        const selectedCategories = Array.from(document.querySelectorAll('.filter-checkbox:checked'))
+            .map(checkbox => checkbox.dataset.category);
+        
+        console.log('Selected categories:', selectedCategories); // Debug
+        
+        // Base calendar URL
+        let calendarSrc = 'https://calendar.google.com/calendar/embed?';
+        
+        // Add parameters
+        calendarSrc += 'wkst=1&bgcolor=%231a1a2e&textcolor=%23e0e0e0';
+        calendarSrc += '&ctz=America%2FNew_York';
+        calendarSrc += '&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1';
+        
+        // Calendar specific colors
+        const calColors = {
+            holiday: '5229A3', // Purple for holiday events
+            streams: '0f3460', // Header blue for streams
+            tournament: 'f9c74f'  // Yellow accent
         };
-
-        // Function to update the calendar iframe based on selected filters
-        function updateCalendarDisplay() {
-            const selectedCategories = Array.from(document.querySelectorAll('.filter-checkbox:checked'))
-                .map(checkbox => checkbox.dataset.category);
-            
-            // Base calendar URL
-            let calendarSrc = 'https://calendar.google.com/calendar/embed?';
-            
-            // Match site color scheme with Google Calendar parameters
-            calendarSrc += 'showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1';
-            calendarSrc += '&ctz=America%2FNew_York';
-            
-            // Set background to match site theme - using exact hex code
-            calendarSrc += '&bgcolor=%231a1a2e'; // Site background color
-            
-            // Set text color to match site
-            calendarSrc += '&textcolor=%23e0e0e0'; // Light text color
-            
-            // Calendar specific colors
-            const calColors = {
-                holiday: '5229A3', // Purple for holiday events
-                streams: '0f3460', // Header blue for streams
-                tournament: 'f9c74f'  // Yellow accent for tournaments (your site's accent color)
-            };
-            
-            // Add each calendar based on whether it's selected with custom colors
-            Object.keys(calendarIDs).forEach((category, index) => {
-                if (selectedCategories.includes(category)) {
-                    calendarSrc += `&src=${encodeURIComponent(calendarIDs[category])}`;
-                    if (calColors[category]) {
-                        calendarSrc += `&color=%23${calColors[category]}`;
-                    }
-                }
-            });
-            
-            // Update iframe src
-            const iframe = document.getElementById('calendar-iframe');
-            if (iframe) {
-                iframe.src = calendarSrc;
+        
+        // Add each calendar based on whether it's selected
+        Object.keys(calendarIDs).forEach((category) => {
+            if (selectedCategories.includes(category)) {
+                calendarSrc += `&src=${encodeURIComponent(calendarIDs[category])}`;
+                calendarSrc += `&color=%23${calColors[category]}`;
             }
-        }
-
-        // Ensure DOM is loaded before initializing
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set an initial calendar URL to ensure iframe loads
-            const iframe = document.getElementById('calendar-iframe');
-            if (iframe && !iframe.src) {
-                iframe.src = `https://calendar.google.com/calendar/embed?bgcolor=%231a1a2e&textcolor=%23e0e0e0&color=%23f9c74f&src=${encodeURIComponent(calendarIDs.holiday)}&color=%235229A3&src=${encodeURIComponent(calendarIDs.streams)}&color=%230f3460&src=${encodeURIComponent(calendarIDs.tournament)}&color=%23B1440E&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1`;
-            }
-            
-            // Setup filter toggle
-            const filterToggle = document.getElementById('filter-toggle');
-            const filterContainer = document.getElementById('filter-container');
-            
-            filterToggle.addEventListener('click', function() {
-                filterContainer.classList.toggle('visible');
-                this.classList.toggle('active');
-            });
-            
-            // Initialize filters
-            updateCalendarDisplay();
         });
-    </script>
+        
+        console.log('Calendar URL:', calendarSrc); // Debug
+        
+        // Update iframe src
+        const iframe = document.getElementById('calendar-iframe');
+        if (iframe) {
+            iframe.src = calendarSrc;
+        }
+    }
+</script>
 </head>
 <body>
     <header class="modern-header">
@@ -518,37 +495,42 @@
     </footer>
     <script src="scripts.js?v=1.0"></script>
     <script>
-        // Event subscription form handling
-        document.getElementById('event-alert-form').addEventListener('submit', function(event) {
-            // Let the form submit to Formspree
-            // But also show a confirmation message
-            const email = document.getElementById('email').value;
-            const selectedCalendars = Array.from(document.querySelectorAll('input[name="calendars"]:checked'))
-                .map(checkbox => checkbox.value);
-                
-            // Store subscription in local storage for demo purposes
-            localStorage.setItem('subscription', JSON.stringify({
-                email: email,
-                calendars: selectedCalendars
-            }));
-            
-            // Show alert after a small delay to allow form submission
-            setTimeout(() => {
-                alert(`Thank you for subscribing to event alerts! We'll send updates about ${selectedCalendars.join(', ')} to ${email}`);
-            }, 500);
-        });
-
-        // Calendar filtering functionality
-        const checkboxes = document.querySelectorAll('.filter-checkbox');
-        if (checkboxes) {
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateCalendarFilters);
+    // Initialize calendar display when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set up filter toggle
+        const filterToggle = document.getElementById('filter-toggle');
+        const filterContainer = document.getElementById('filter-container');
+        if (filterToggle && filterContainer) {
+            filterToggle.addEventListener('click', function() {
+                filterContainer.classList.toggle('visible');
+                this.classList.toggle('active');
             });
         }
 
-        function updateCalendarFilters() {
-            updateCalendarDisplay();
+        // Set up filter checkboxes
+        const checkboxes = document.querySelectorAll('.filter-checkbox');
+        if (checkboxes && checkboxes.length > 0) {
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    console.log('Checkbox changed:', this.dataset.category, this.checked); // Debug
+                    updateCalendarDisplay();
+                });
+                
+                // Initial calendar display
+                updateCalendarDisplay();
+            });
+        } else {
+            console.error('Filter checkboxes not found'); // Debug
         }
-    </script>
+    });
+
+    // Remove the event-alert-form handler if it doesn't exist
+    const alertForm = document.getElementById('event-alert-form');
+    if (alertForm) {
+        alertForm.addEventListener('submit', function(event) {
+            // ...existing event form handling...
+        });
+    }
+</script>
 </body>
 </html>
