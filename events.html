@@ -4,9 +4,551 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - Constellation SMP</title>
-    <link rel="stylesheet" href="styles.css?v=1.0"> <!-- Add version query string -->
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Events - Constellation SMP">
+    <meta property="og:description" content="Check out upcoming events on the Constellation SMP Minecraft server.">
+    <meta property="og:image" content="https://SMP.ConstellationVirtualMedia.com/pictures/Event1Plaza.png">
+    <meta property="og:url" content="https://SMP.ConstellationVirtualMedia.com/events.html">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Events - Constellation SMP">
+    <meta name="twitter:description" content="Check out upcoming events on the Constellation SMP Minecraft server.">
+    <meta name="twitter:image" content="https://SMP.ConstellationVirtualMedia.com/pictures/Event1Plaza.png">
+    <style>
+        .calendar-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            background-color: #1a1a2e; /* Match site background color */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .calendar-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+                        filter: invert(90%) hue-rotate(180deg) saturate(70%) brightness(90%);
+        }
+        
+        .filter-toggle {
+            background-color: #0f3460;
+            color: #e0e0e0;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-toggle:hover {
+            background-color: #16213e;
+        }
+        
+        .filter-toggle h3 {
+            margin: 0;
+        }
+        
+        .filter-toggle .toggle-icon {
+            transition: transform 0.3s;
+        }
+        
+        .filter-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .filter-container {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #16213e;
+            border-radius: 8px;
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s, opacity 0.3s;
+        }
+        
+        .filter-container.visible {
+            display: block;
+            animation: fadeDown 0.3s forwards;
+        }
+        
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .filter-container h3 {
+            margin-top: 0;
+        }
+        
+        .filter-options label {
+            margin-right: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .filter-options input {
+            margin-right: 0.5rem;
+        }
+        
+        .alert-signup {
+            background-color: #16213e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .alert-signup h3 {
+            margin-top: 0;
+        }
+        
+        .alert-signup form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+        }
+        
+        .alert-signup input,
+        .alert-signup select {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #0f3460;
+            border-radius: 4px;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+        
+        .alert-signup button {
+            padding: 0.75rem 1.5rem;
+            background-color: #f9c74f;
+            color: #0f3460;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .alert-signup button:hover {
+            background-color: #f3b61f;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-options label {
+                display: block;
+                margin-bottom: 0.75rem;
+            }
+            
+            .alert-signup form {
+                max-width: 100%;
+            }
+        }
+        
+        .signup-options {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .google-calendar-option,
+        .email-form-option {
+            flex: 1;
+            background-color: rgba(22, 33, 62, 0.5);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .calendar-links {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        
+        .calendar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #0f3460;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            justify-content: center;
+        }
+        
+        .calendar-link:hover {
+            background-color: #1a4a80;
+        }
+        
+        .calendar-link img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .signup-options {
+                flex-direction: column;
+            }
+        }
+
+        .calendar-info {
+            margin-top: 2rem;
+        }
+        
+        .calendar-info h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .info-dropdown {
+            background-color: rgba(22, 33, 62, 0.7);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .info-dropdown summary {
+            background-color: #0f3460;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .info-dropdown summary::after {
+            content: "▼";
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        
+        .info-dropdown[open] summary::after {
+            transform: rotate(180deg);
+        }
+        
+        .info-dropdown .content {
+            padding: 1rem;
+        }
+        
+        .info-dropdown ol, 
+        .info-dropdown ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-dropdown li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-dropdown img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .calendar-subscription {
+            margin-top: 2rem;
+            background-color: #16213e;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .calendar-links {
+                flex-direction: column;
+            }
+            
+            .calendar-link {
+                min-width: auto;
+                max-width: 100%;
+            }
+            
+            .info-dropdown summary {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+            
+            .calendar-container {
+                padding-bottom: 100%;
+            }
+        }
+    </style>
+    <script>
+        // Store calendar IDs
+        const calendarIDs = {
+            holiday: '0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b@group.calendar.google.com',
+            streams: '2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69@group.calendar.google.com',
+            tournament: '382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c@group.calendar.google.com'
+        };
+
+        // Function to update the calendar iframe based on selected filters
+        function updateCalendarDisplay() {
+            const selectedCategories = Array.from(document.querySelectorAll('.filter-checkbox:checked'))
+                .map(checkbox => checkbox.dataset.category);
+            
+            // Base calendar URL
+            let calendarSrc = 'https://calendar.google.com/calendar/embed?';
+            
+            // Match site color scheme with Google Calendar parameters
+            calendarSrc += 'showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1';
+            calendarSrc += '&ctz=America%2FNew_York';
+            
+            // Set background to match site theme - using exact hex code
+            calendarSrc += '&bgcolor=%231a1a2e'; // Site background color
+            
+            // Set text color to match site
+            calendarSrc += '&textcolor=%23e0e0e0'; // Light text color
+            
+            // Calendar specific colors
+            const calColors = {
+                holiday: '5229A3', // Purple for holiday events
+                streams: '0f3460', // Header blue for streams
+                tournament: 'f9c74f'  // Yellow accent for tournaments (your site's accent color)
+            };
+            
+            // Add each calendar based on whether it's selected with custom colors
+            Object.keys(calendarIDs).forEach((category, index) => {
+                if (selectedCategories.includes(category)) {
+                    calendarSrc += `&src=${encodeURIComponent(calendarIDs[category])}`;
+                    if (calColors[category]) {
+                        calendarSrc += `&color=%23${calColors[category]}`;
+                    }
+                }
+            });
+            
+            // Update iframe src
+            const iframe = document.getElementById('calendar-iframe');
+            if (iframe) {
+                iframe.src = calendarSrc;
+            }
+        }
+
+        // Ensure DOM is loaded before initializing
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set an initial calendar URL to ensure iframe loads
+            const iframe = document.getElementById('calendar-iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = `https://calendar.google.com/calendar/embed?bgcolor=%231a1a2e&textcolor=%23e0e0e0&color=%23f9c74f&src=${encodeURIComponent(calendarIDs.holiday)}&color=%235229A3&src=${encodeURIComponent(calendarIDs.streams)}&color=%230f3460&src=${encodeURIComponent(calendarIDs.tournament)}&color=%23B1440E&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1`;
+            }
+            
+            // Setup filter toggle
+            const filterToggle = document.getElementById('filter-toggle');
+            const filterContainer = document.getElementById('filter-container');
+            
+            filterToggle.addEventListener('click', function() {
+                filterContainer.classList.toggle('visible');
+                this.classList.toggle('active');
+            });
+            
+            // Initialize filters
+            updateCalendarDisplay();
+        });
+    </script>
 </head>
 <body>
-    <script src="scripts.js?v=1.0"></script> <!-- Add version query string -->
+    <header class="modern-header">
+        <div class="logo-container">
+            <img src="pictures/ConSmpLogo.png" alt="Constellation SMP Logo" class="logo">
+            <h1>Server Events</h1>
+        </div>
+        <div class="menu-icon">&#9776;</div> <!-- Menu icon for mobile -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="bios.html">Creators</a></li>
+                <li><a href="modlist.html">Modlist</a></li>
+                <li><a href="credits.html">Credits</a></li>
+                <li><a href="plans.html">Events & Plans</a></li>
+                <li><a href="downloads.html">Custom Server Mods</a></li>
+                <li><a href="seasons.html">Seasons</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="centered-section fade-in-top-subtle">
+            <h2>Upcoming Events Calendar</h2>
+            <p>Stay updated with all the exciting events happening on the Constellation SMP server! From tournaments to holiday celebrations, you'll find everything here.</p>
+        </section>
+
+        <div class="filter-toggle" id="filter-toggle">
+            <h3>Filter Events</h3>
+            <span class="toggle-icon">▼</span>
+        </div>
+
+        <section class="filter-container" id="filter-container">
+            <div class="filter-options">
+                <label><input type="checkbox" class="filter-checkbox" data-category="holiday" checked> Holiday Events</label>
+                <label><input type="checkbox" class="filter-checkbox" data-category="streams" checked> Upcoming Streams</label>
+                <label><input type="checkbox" class="filter-checkbox" data-category="tournament" checked> Tournaments</label>
+            </div>
+        </section>
+
+        <section class="calendar-container fade-in-subtle">
+            <!-- Updated iframe with dark background that matches site -->
+            <iframe id="calendar-iframe" frameborder="0" scrolling="no" 
+            src="https://calendar.google.com/calendar/embed?wkst=1&bgcolor=%231a1a2e&textcolor=%23e0e0e0&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1&src=0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b%40group.calendar.google.com&color=%235229A3&src=2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69%40group.calendar.google.com&color=%230f3460&src=382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c%40group.calendar.google.com&color=%23f9c74f"></iframe>
+        </section>
+
+        <section class="calendar-subscription fade-in-bottom-subtle">
+            <h3>Subscribe to Event Calendars</h3>
+            <p>Add our calendars to your Google Calendar to receive notifications about upcoming events!</p>
+            
+            <div class="calendar-links">
+                <a href="https://calendar.google.com/calendar/r?cid=0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b%40group.calendar.google.com" target="_blank" class="calendar-link">
+                    <img src="icons/calendar.png" alt="Calendar">
+                    Holiday Events
+                </a>
+                <a href="https://calendar.google.com/calendar/r?cid=2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69%40group.calendar.google.com" target="_blank" class="calendar-link">
+                    <img src="icons/Twitch.png" alt="Twitch Logo">
+                    Upcoming Streams
+                </a>
+                <a href="https://calendar.google.com/calendar/r?cid=382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c%40group.calendar.google.com" target="_blank" class="calendar-link">
+                    <img src="icons/calendar.png" alt="Calendar">
+                    Tournaments
+                </a>
+            </div>
+        </section>
+
+        <section class="calendar-info fade-in-bottom-subtle">
+            <h3>Calendar Instructions</h3>
+            
+            <details class="info-dropdown">
+                <summary>How to Add These Calendars to Google Calendar</summary>
+                <div class="content">
+                    <ol>
+                        <li><strong>Click the subscription link</strong> for the calendar(s) you want to add.</li>
+                        <li>When prompted, <strong>click "Yes"</strong> to add the calendar.</li>
+                        <li>The calendar will appear in your <strong>"Other calendars"</strong> section in Google Calendar.</li>
+                        <li>You can toggle the calendar's visibility by clicking on its name in the sidebar.</li>
+                    </ol>
+                    <p><strong>Note:</strong> You need to be logged into your Google account to add these calendars.</p>
+                </div>
+            </details>
+            
+            <details class="info-dropdown">
+                <summary>Setting Up Event Notifications</summary>
+                <div class="content">
+                    <p>Once you've added the calendars, you can customize notification settings:</p>
+                    <ol>
+                        <li>Go to <a href="https://calendar.google.com/" target="_blank">Google Calendar</a>.</li>
+                        <li>In the left sidebar, hover over the calendar name under "Other calendars".</li>
+                        <li>Click the three dots that appear, then select <strong>"Settings and sharing"</strong>.</li>
+                        <li>Scroll down to <strong>"Event notifications"</strong>.</li>
+                        <li>Click <strong>"Add notification"</strong> and select your preferred notification method and timing.</li>
+                        <li>Options include email notifications and phone notifications (if you have the Google Calendar app).</li>
+                    </ol>
+                </div>
+            </details>
+            
+            <details class="info-dropdown">
+                <summary>How to Remove Calendars or Unsubscribe</summary>
+                <div class="content">
+                    <p>If you want to stop receiving updates about our events:</p>
+                    <ol></ol>
+                        <li>Go to <a href="https://calendar.google.com/" target="_blank">Google Calendar</a>.</li>
+                        <li>In the left sidebar, find the calendar name under "Other calendars".</li>
+                        <li>Hover over the calendar name and click the three dots that appear.</li>
+                        <li>Select <strong>"Settings and sharing"</strong>.</li>
+                        <li>Scroll down to the bottom and click <strong>"Unsubscribe"</strong>.</li>
+                    </ol>
+                    <p>Alternatively, for a temporary solution:</p>
+                    <ul>
+                        <li>Simply uncheck the calendar in the sidebar to hide its events without unsubscribing.</li>
+                        <li>You can turn off specific notifications in the calendar settings while keeping the calendar.</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <details class="info-dropdown">
+                <summary>Viewing on Mobile Devices</summary>
+                <div class="content">
+                    <p>To access these calendars on your mobile device:</p>
+                    <ol>
+                        <li>Install the Google Calendar app on your phone or tablet.</li>
+                        <li>Sign in with the same Google account you used to subscribe.</li>
+                        <li>The calendars will automatically appear in your app.</li>
+                        <li>Tap on the hamburger menu (≡) in the top left, then make sure the calendars are checked to view them.</li>
+                    </ol>
+                    <p>You can also receive push notifications on your mobile device by adjusting notification settings in the Google Calendar app.</p>
+                </div>
+            </details>
+        </section>
+    </main>
+    <footer class="fade-in-bottom-subtle">
+        <p>&copy; 2025 Constellation SMP. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js?v=1.0"></script>
+    <script>
+        // Event subscription form handling
+        document.getElementById('event-alert-form').addEventListener('submit', function(event) {
+            // Let the form submit to Formspree
+            // But also show a confirmation message
+            const email = document.getElementById('email').value;
+            const selectedCalendars = Array.from(document.querySelectorAll('input[name="calendars"]:checked'))
+                .map(checkbox => checkbox.value);
+                
+            // Store subscription in local storage for demo purposes
+            localStorage.setItem('subscription', JSON.stringify({
+                email: email,
+                calendars: selectedCalendars
+            }));
+            
+            // Show alert after a small delay to allow form submission
+            setTimeout(() => {
+                alert(`Thank you for subscribing to event alerts! We'll send updates about ${selectedCalendars.join(', ')} to ${email}`);
+            }, 500);
+        });
+
+        // Calendar filtering functionality
+        const checkboxes = document.querySelectorAll('.filter-checkbox');
+        if (checkboxes) {
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateCalendarFilters);
+            });
+        }
+
+        function updateCalendarFilters() {
+            updateCalendarDisplay();
+        }
+    </script>
 </body>
 </html>
