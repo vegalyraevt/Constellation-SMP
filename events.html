@@ -316,7 +316,8 @@
     const calendarIDs = {
         holiday: '0dad6fdfea9ef786c12b08ca4911e33913ddae52fa51bfe8349c39f584bffe2b@group.calendar.google.com',
         streams: '2d21ac769b6a17001ac7cacf9bcee2d804ce83843d6795ad3d3f3801ba94dd69@group.calendar.google.com',
-        tournament: '382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c@group.calendar.google.com'
+        tournament: '382182a376e395262f1e7583b6b3726a78ed57f66c1507c1e559c8014886525c@group.calendar.google.com',
+        gym: '6d80faa6652ec212fff230efc3437a24e99f4a3adbabb81950c02cc7f7570d83@group.calendar.google.com' // Added Gym Availability calendar
     };
 
     // Function to update the calendar iframe based on selected filters
@@ -339,7 +340,8 @@
         const calColors = {
             holiday: '5229A3', // Purple for holiday events
             streams: '0f3460', // Header blue for streams
-            tournament: 'f9c74f'  // Yellow accent
+            tournament: 'f9c74f',  // Yellow accent
+            gym: '4CAF50'  // Green for gym availability
         };
         
         // Add each calendar based on whether it's selected
@@ -396,6 +398,7 @@
                 <label><input type="checkbox" class="filter-checkbox" data-category="holiday" checked> Holiday Events</label>
                 <label><input type="checkbox" class="filter-checkbox" data-category="streams" checked> Upcoming Streams</label>
                 <label><input type="checkbox" class="filter-checkbox" data-category="tournament" checked> Tournaments</label>
+                <label><input type="checkbox" class="filter-checkbox" data-category="gym"> Gym Availability</label>
             </div>
         </section>
 
@@ -488,6 +491,22 @@
                     <p>You can also receive push notifications on your mobile device by adjusting notification settings in the Google Calendar app.</p>
                 </div>
             </details>
+
+            <details class="info-dropdown">
+                <summary>Checking Gym Availability</summary>
+                <div class="content">
+                    <p>The Gym Availability calendar shows when Pokémon gym leaders are available for challenges:</p>
+                    <ul>
+                        <li>This calendar is <strong>hidden by default</strong> as it's primarily for active SMP members</li>
+                        <li>To view gym leader availability, click the "Filter Events" dropdown at the top of the page</li>
+                        <li>Check the <strong>Gym Availability</strong> checkbox to show when gym leaders are accepting battle challenges</li>
+                        <li>Each event in this calendar represents times when a specific gym leader is available to fight</li>
+                        <li>SMP members can use this information to schedule their gym challenges at convenient times be reaching out to the gym leaders based on their availability</li>
+                    </ul>
+                    <p><strong>Note:</strong> If you're a gym leader and need to update your availability, please contact Vega for access to the google calandar until the Discord bot is avalible for this.</p>
+                </div>
+            </details>
+            
         </section>
     </main>
     <footer class="fade-in-bottom-subtle">
